@@ -2,7 +2,6 @@
 # see: https://github.com/yeasy/easyOVS
 
 FROM yeasy/devbase:python
-MAINTAINER Baohua Yang
 
 # install needed software
 RUN apt-get install openvswitch-switch iptables -y
@@ -12,7 +11,6 @@ bash easyOVS/util/install.sh
 
 WORKDIR /code/easyOVS/
 
-VOLUME ["/var/run/openvswitch/", "/var/run/netns/", "/etc/neutron/",
-"/var/lib/neutron"]
+VOLUME ["/var/run/openvswitch/", "/var/run/netns/", "/etc/neutron/", "/var/lib/neutron"]
 
 ENTRYPOINT [ "/usr/local/bin/easyovs" ]
